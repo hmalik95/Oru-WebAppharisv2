@@ -13,11 +13,10 @@ public class dbConnection {
         try {
             // db parameters
             String url = "jdbc:sqlite:C:/sqlite/db/svettsvett.sqlite";
-            // create a connection to the database
+            // create a connection to the database;
             conn = DriverManager.getConnection(url);
-            String sql = ("SELECT * from users where username = 'trill'");
-
             System.out.println("Connection to SQLite has been established.");
+            System.out.println("hahahha allt kommer gå sönder");
 
 
         } catch (SQLException e) {
