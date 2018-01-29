@@ -15,12 +15,10 @@ public class dbConnection {
             String url = "jdbc:sqlite:C:/sqlite/db/svettsvett.sqlite";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
-            Statement st = conn.createStatement();
             String sql = ("SELECT * from users where username = 'trill'");
-            st.getResultSet().getRow();
-            conn.close();
+
             System.out.println("Connection to SQLite has been established.");
-            System.out.println(sql);
+
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
