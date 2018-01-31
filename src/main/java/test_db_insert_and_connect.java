@@ -1,6 +1,19 @@
 import java.sql.*;
 
 public class test_db_insert_and_connect {
+    private String dbUsername = null;
+
+    public void DbUsername(String username)
+    {
+        dbUsername = username;
+    }
+    public String getDbUsername()
+    {
+        return dbUsername;
+    }
+
+
+
     /**
      * Connect to the test.db database
      *
@@ -46,7 +59,7 @@ public class test_db_insert_and_connect {
     public void getUsernameAndPassword(String name, String password)
     {
 
-        String sql = "SELECT username, password FROM Users WHERE username= ? AND password = ?";
+         String sql = "SELECT username FROM Users WHERE username= ? AND password = ?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt  = conn.prepareStatement(sql)){
 
@@ -58,9 +71,7 @@ public class test_db_insert_and_connect {
 
             // loop through the result set
             while (rs.next()) {
-                System.out.println(
-                        rs.getString("username") + "\t" +
-                        rs.getString("password"));
+                DbUsername(rs.getString("username"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -72,7 +83,7 @@ public class test_db_insert_and_connect {
      */
     public static void main(String[] args) {
 
-        test_db_insert_and_connect app = new test_db_insert_and_connect();
+       // test_db_insert_and_connect app = new test_db_insert_and_connect();
         // insert three new rows
         /*app.insert("Raw-Materials", "gunnar");
         app.insert("Semifinished-Goods", "Svett123");
