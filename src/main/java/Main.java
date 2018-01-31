@@ -7,11 +7,11 @@ import java.util.Map;
 import static spark.Spark.*;
 
 public class Main extends dbConnection {
-    private static dbConnection dbc;
+    private static test_db_insert_and_connect db;
 
 
     public static void main(String[] args) {
-        dbc.connect();
+        db.getUsernameAndPassword("Raw-Materials", "gunnar");
         get("/",(req, res) -> {
             return new ModelAndView(null, "index.hbs");
         }, new HandlebarsTemplateEngine());
