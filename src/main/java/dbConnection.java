@@ -13,10 +13,9 @@ public class dbConnection {
         try {
             // db parameters
             String url = "jdbc:sqlite:C:/sqlite/db/svettsvett.sqlite";
-            // create a connection to the database;
+            // create a connection to the database
             conn = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
-            System.out.println("hahahha allt kommer gå sönder");
 
 
         } catch (SQLException e) {
@@ -37,8 +36,6 @@ public class dbConnection {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
         connect();
-
     }
 }
