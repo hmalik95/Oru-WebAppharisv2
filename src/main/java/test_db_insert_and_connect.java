@@ -2,17 +2,26 @@ import java.sql.*;
 
 public class test_db_insert_and_connect {
     private String dbUsername = null;
+    private String dbPassword = null;
 
+    /* Set the username as whatever the user types in */
     public void DbUsername(String username)
     {
         dbUsername = username;
     }
+    /* Get the username */
     public String getDbUsername()
     {
         return dbUsername;
     }
+    public void DbPassword(String password)
+    {
+        dbPassword = password;
+    }
 
-
+    public String getDbPassword() {
+        return dbPassword;
+    }
 
     /**
      * Connect to the test.db database
@@ -59,7 +68,7 @@ public class test_db_insert_and_connect {
     public void getUsernameAndPassword(String name, String password)
     {
 
-         String sql = "SELECT username FROM Users WHERE username= ? AND password = ?";
+         String sql = "SELECT username,password FROM Users WHERE username= ? AND password = ?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt  = conn.prepareStatement(sql)){
 
@@ -72,6 +81,7 @@ public class test_db_insert_and_connect {
             // loop through the result set
             while (rs.next()) {
                 DbUsername(rs.getString("username"));
+                DbPassword(rs.getString("password"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
