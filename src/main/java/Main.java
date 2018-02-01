@@ -25,7 +25,7 @@ public class Main extends dbConnection {
             boolean userExist = false;
             db.getUsernameAndPassword(inputUsername,inputPassword);
             System.out.println(inputUsername + "\t" + db.getDbUsername() + "\t" + inputPassword);
-            if (db.getDbUsername().equals(inputUsername))
+            if (db.getDbUsername().equals(inputUsername) && db.getDbPassword().equals(inputPassword))
             {
                 userExist = true;
             }
